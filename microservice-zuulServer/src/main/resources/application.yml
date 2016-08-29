@@ -1,0 +1,40 @@
+info:
+  component: zuul server app
+    
+server:
+  port: 8080
+  
+spring:
+  config:
+    name:  zuulserver
+  application:
+    name: zuulserver
+zuul:
+  routes:
+      location-service:
+        path: /locate/**
+        serviceId: LOCATION-SERVICE
+      greeting-service:
+        path: /greeting/**
+        serviceId: GREETING-SERVICE
+      greeting-client-service:
+        path: /greetingClient/**
+        serviceId: GREETING-CLIENT-SERVICE   
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+      
+      
+      
+######Ejemplo Con la siguiente configuración en el application.yml - archivo que hemos limitado las rutas para permitir sólo llamadas al servicio de producto compuesto
+
+#zuul:
+#  ignoredServices: "*"
+#  routes:
+#    productcomposite:
+#      path: /productcomposite/**
+
+      

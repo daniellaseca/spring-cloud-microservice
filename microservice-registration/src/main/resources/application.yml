@@ -1,0 +1,33 @@
+
+#Configuración sin spring config
+#server:
+#  port: 1111   # HTTP (Tomcat) port
+#spring:
+#  application:
+#    name:  eureka
+#  thymeleaf:
+#    enabled: false     # Disable Thymeleaf 
+##Configure this Discovery Server
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:  # Not a client, don't register with yourself
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+ 
+ 
+spring:
+  application:
+    name: eureka
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    

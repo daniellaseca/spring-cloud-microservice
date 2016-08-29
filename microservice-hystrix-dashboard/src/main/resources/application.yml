@@ -1,0 +1,43 @@
+
+#Configuración sin utilizatr Spring Config
+
+# Spring properties
+# spring:
+#   application:
+#      name: location-service  # Service registers under this name
+# Discovery Server Access
+# eureka:
+#   client:
+#     serviceUrl:
+#       defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server
+# server:
+#   port: 3333   # HTTP (Tomcat) port
+
+#spring:
+#  application:
+#    name: location
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+
+
+spring:
+  application:
+    name: turbine-service  # Service registers under this name
+server:
+  port: 8989
+
+ # Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+turbine:
+  aggregator:
+    clusterConfig: MICROSERVICESCLIENT
+  appConfig: microservicesclient
+
+ 

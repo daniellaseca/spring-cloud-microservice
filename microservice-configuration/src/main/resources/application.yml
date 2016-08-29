@@ -1,0 +1,31 @@
+server:
+  port: 8888
+  
+
+#.Jugando con perfiles
+#.spring:
+#.  profiles:
+#.    include: native, development
+#.    active: native, development
+#.  cloud:
+#.    config:
+#.      profile: native
+#.      server:
+#.        native: 
+#.        searchLocations: file:/Users/daniellasecachico/Documents/netflix/spring-cloud-config-git/spring-cloud-config/config
+---
+spring:
+  #profiles: development     
+  cloud:
+    config:
+      server:
+        git:     
+          uri: https://github.com/daniellaseca/spring-cloud-config.git
+          search-paths:
+            - config     
+            # native:
+                  #   searchLocations: classpath:config/
+
+#. La única propiedad que es obligatorio es spring.cloud.config.server.git.uri , ya que le dice al servidor de configuración de la nube de primavera dónde encontrar el repositorio Git configuración. En este caso, la he instalado para hacer referencia a un repositorio en GitHub, pero el servidor de configuración funciona con cualquier aplicación de Git, incluyendo GitLab y Team Foundation Server de Microsoft.
+# repositorio protegido por un nombre de usuario y contraseña, puede especificar las credenciales con spring.cloud.config.server.git.username y spring.cloud.config.server.git.password
+#  Ejemplo spring: cloud: config: server: git: uri: https://github.com/habuma/private-config-repo username: habuma (1) password: s3cr3t (2) 
